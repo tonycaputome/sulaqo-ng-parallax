@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "angular": "^1.5.8"
+  },
+  "devDependencies": {},
+  "name": "su-ng-parallax",
+  "version": "1.0.0",
+  "main": "sqo-ng-parallax.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sulaqo/sulaqo-ng-parallax.git"
+  },
+  "keywords": [],
+  "author": "Antonio Caputo",
+  "license": "MIT",
+  "homepage": "https://github.com/sulaqo/sulaqo-ng-parallax.git#readme",
+  "description": "AngularJS parallax effect"
+}
