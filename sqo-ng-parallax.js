@@ -108,7 +108,7 @@
 
 
 			function init(){
-				// addind a default class
+				// add a default css class
 				el.classList.add('__sq_ng_parallax');
 				angular.merge( el.style, defaultCssProperties );
 
