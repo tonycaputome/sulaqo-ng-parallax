@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title> Sulaqo | Parallax Demo </title>
 	<style type="text/css">
 		body {
 			padding: 0;
 			margin: 0;
-			height:2000px;
+			height: 2000px;
 		}
+		
 		.__sq_ng_parallax {
 			height: 550px;
 			width: 100%;
 		}
+		
 		img {
-			transform:translate(0);
+			transform: translate(0);
 			width: 100%;
 		}
-		.debug{
+		
+		.debug {
 			background-color: #fafafa;
-			color:#113;
+			color: #113;
 			position: absolute;
-    		top: 50%;
+			top: 50%;
 			left: 50%;
-			transform: translate(-50% , -50%);
+			transform: translate(-50%, -50%);
 			padding: 15px;
 			transition: all 0.3s;
 			opacity: 0.7;
 			min-width: 220px;
-    		text-align: center;
+			text-align: center;
 		}
 	</style>
 </head>
@@ -38,7 +42,7 @@
 	</sqo-ng-parallax>
 
 	<sqo-ng-parallax speed='4.3'>
-		<img src="https://hd.unsplash.com/photo-1413781892741-08a142b23dfe">
+		<img src="https://unsplash.it/800/600/?random">
 	</sqo-ng-parallax>
 </body>
 

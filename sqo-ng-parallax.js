@@ -14,7 +14,8 @@
 				speed: '@',
 				image: '@',
 				yPos: '=?',
-				debug: '=?'
+				debug: '=?',
+				useStyle : '@?',
 			},
 			transclude: true,
 			template: '<div ng-transclude></div>',
@@ -34,13 +35,15 @@
 			var hasImage = angular.element(el.querySelector('img')).length > 0 ? true : false;
 			var isMobile = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 			var speed = scope.speed;
-			var cssProperties = {
+			var defaultCssProperties = {
 				display: 'block',
 				overflow: 'hidden',
 				position: 'relative'
 			}
 
-			vendorPrefixes = (function () {
+			init();
+
+			vendorPrefixes = function () {
 				var test = angular.element('<div></div>')[0];
 				var prefixes = 'transform WebkitTransform MozTransform OTransform'.split(' ');
 				for (var i = 0; i < prefixes.length; i++) {
@@ -52,14 +55,7 @@
 				return {
 					prefix: transformProperty
 				};
-			})();
-
-			(function () {
-				el.classList.add('__sq_ng_parallax');
-				angular.merge(el.style, cssProperties);
-			})();
-
-
+			};
 
 			(function () {
 				var lastTime = 0;
@@ -109,15 +105,23 @@
 
 			}
 
-			angular.element($window).bind("scroll", function () {
+
+
+			function init(){
+				// addind a default class
+				el.classList.add('__sq_ng_parallax');
+				angular.merge( el.style, defaultCssProperties );
+
+				angular.element($window).bind("scroll", function () {
+					requestAnimationFrame(doParallaxEffect);
+				});
 				requestAnimationFrame(doParallaxEffect);
-			});
-			requestAnimationFrame(doParallaxEffect);
 
-			scope.$on('$destroy', function () {
-				$window.off('scroll touchmove', doParallaxEffect);
-			});
+				scope.$on('$destroy', function () {
+					$window.off('scroll', doParallaxEffect);
+				});
 
+			}
 
 
 		}
