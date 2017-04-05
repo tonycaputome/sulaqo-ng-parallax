@@ -15,7 +15,7 @@
 				image: '@',
 				yPos: '=?',
 				debug: '=?',
-				useStyle : '@?', // add usternal stylesheet passing attr
+				useStyle : '@?', // add external stylesheet using attr ??
 			},
 			transclude: true,
 			template: '<div ng-transclude></div>',
