@@ -41,9 +41,9 @@
 				position: 'relative'
 			}
 
-			init();
-
-			vendorPrefixes = function () {
+		
+			
+			vendorPrefixes = (function () {
 				var test = angular.element('<div></div>')[0];
 				var prefixes = 'transform WebkitTransform MozTransform OTransform'.split(' ');
 				for (var i = 0; i < prefixes.length; i++) {
@@ -55,7 +55,7 @@
 				return {
 					prefix: transformProperty
 				};
-			};
+			})();
 
 			(function () {
 				var lastTime = 0;
@@ -89,6 +89,7 @@
 				var yPos = -(scrollTop / speed);
 				if (hasImage) {
 					var image = angular.element(el.querySelector('img'))[0];
+					console.log(vendorPrefixes.prefix);
 					image.style[vendorPrefixes.prefix] = 'translate3d( 0px ,' + Math.round(yPos) + 'px , 0 )';
 				} else {
 					el.style.backgroundImage = "url('" + scope.image + "')" || {};
@@ -112,6 +113,8 @@
 				el.classList.add('__sq_ng_parallax');
 				angular.merge( el.style, defaultCssProperties );
 
+
+				console.log(el.style)
 				angular.element($window).bind("scroll", function () {
 					requestAnimationFrame(doParallaxEffect);
 				});
@@ -122,6 +125,8 @@
 				});
 
 			}
+
+			init();
 
 
 		}
